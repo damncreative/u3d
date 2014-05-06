@@ -1,0 +1,36 @@
+{
+  "name": "upm",
+  "version": "0.0.0",
+  "description": "Unity3D Package Manager",
+  "main": "./lib/upm.js",
+  "bin": "./bin/upm",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damncreative/upm.git"
+  },
+  "keywords": [
+    "unity3d",
+    "package",
+    "manager"
+  ],
+  "author": "MRW Neundorf <matt@nax.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/damncreative/upm/issues"
+  },
+  "homepage": "https://github.com/damncreative/upm",
+  "dependencies": {
+    "commander": "^2.2.0",
+    "growl": "^1.7.0",
+    "debug": "^0.8.1",
+    "mkdirp": "^0.5.0",
+    "glob": "^3.2.9"
+  },
+  "devDependencies": {
+    "should": "^3.3.1",
+    "mocha": "^1.18.2"
+  }
+}
