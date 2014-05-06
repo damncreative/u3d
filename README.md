@@ -1,6 +1,6 @@
-upm
+u3dam
 ===
 
-[![Build Status](https://travis-ci.org/Naxmeify/upm.svg?branch=master)](https://travis-ci.org/Naxmeify/upm)
+[![Build Status](https://travis-ci.org/Naxmeify/u3dam.svg?branch=master)](https://travis-ci.org/Naxmeify/u3dam)
 
-Unity3D Package Manager
+Unity3D Assets Manager

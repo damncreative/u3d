@@ -1,15 +1,15 @@
 {
-  "name": "upm",
+  "name": "u3dam",
   "version": "0.0.0",
-  "description": "Unity3D Package Manager",
-  "main": "./lib/upm.js",
-  "bin": "./bin/upm",
+  "description": "Unity3D Assets Manager",
+  "main": "./lib/u3dam.js",
+  "bin": "./bin/u3dam",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/damncreative/upm.git"
+    "url": "https://github.com/naxmeify/u3dam.git"
   },
   "keywords": [
     "unity3d",
@@ -19,9 +19,9 @@
   "author": "MRW Neundorf <matt@nax.me>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/damncreative/upm/issues"
+    "url": "https://github.com/naxmeify/u3dam/issues"
   },
-  "homepage": "https://github.com/damncreative/upm",
+  "homepage": "https://github.com/naxmeify/u3dam",
   "dependencies": {
     "commander": "^2.2.0",
     "growl": "^1.7.0",

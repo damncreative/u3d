@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-describe('UPM Init Test', function () {
+describe('U3DAM Init Test', function () {
 	it('should be ok', function (done) {
 		true.should.be.ok;
 		done();
