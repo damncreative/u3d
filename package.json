@@ -1,9 +1,10 @@
 {
   "name": "u3dam",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Unity3D Assets Manager",
   "main": "./lib/u3dam.js",
   "bin": "./bin/u3dam",
+  "preferGlobal": true,
   "scripts": {
     "test": "mocha"
   },
