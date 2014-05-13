@@ -8,8 +8,19 @@ u3d
 
 [![NPM](https://nodei.co/npm/u3d.png)](https://nodei.co/npm/u3d/)
 
-# U3D
+## U3D
 Unity3D CLI Tool
+```
+$ u3d --help
+```
 
-# U3DAM
+## U3DAM
 Unity3D Asset Manager
+```
+$ u3dam --help
+```
+
+## Getting started
+```
+$ npm install -g u3d
+```
