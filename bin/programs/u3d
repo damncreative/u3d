@@ -28,6 +28,9 @@ SOFTWARE.
 var root = "../../";
 var program = require('commander');
 var pkg = require(root + 'package.json');
+var lib = root + 'lib/';
+
+var u3d = require(lib + 'u3d');
 
 // version
 program.version(pkg.version);
@@ -44,6 +47,14 @@ program.command('run')
 .description('Starts Unity3D...maybe')
 .action(function(cmd){
   console.log("Start....");
+});
+
+program.command('install')
+.description('Install Unity3D from internet')
+.action(function(cmd) {
+  u3d.download('4.3.4', function(err, data) {
+    if(err) console.log(err);
+  });
 });
 
 // parse
