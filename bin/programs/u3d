@@ -23,3 +23,28 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+// requirements
+var root = "../../";
+var program = require('commander');
+var pkg = require(root + 'package.json');
+
+// version
+program.version(pkg.version);
+
+// usage
+program.usage('[command] [options]')
+
+// options
+
+// on help
+
+// commands
+program.command('run')
+.description('Starts Unity3D...maybe')
+.action(function(cmd){
+  console.log("Start....");
+});
+
+// parse
+program.parse(process.argv);

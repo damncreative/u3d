@@ -23,28 +23,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+var root = "../../";
+var program = require('commander');
+var pkg = require(root + 'package.json');
 
-var spawn = require('child_process').spawn
-  , args = [ __dirname + '/programs/u3dam' ];
 
-process.argv.slice(2).forEach(function(arg){
-  var flag = arg.split('=')[0];
+// version
+program.version(pkg.version);
 
-  switch (flag) {
-    default:
-      if (0 == arg.indexOf('--trace')) args.unshift(arg);
-      else args.push(arg);
-      break
-  }
-});
+// usage
+program.usage('[command] [options]')
 
-var spawnedProcess = spawn(process.argv[0], args, { customFds: [0,1,2] });
-spawnedProcess.on('exit', function (code, signal) {
-  process.on('exit', function(){
-    if (signal) {
-      process.kill(process.pid, signal);
-    } else {
-      process.exit(code);
-    }
-  });
-});
+// options
+
+// on help
+
+// commands
+
+// parse
+program.parse(process.argv);

@@ -24,13 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+
 var spawn = require('child_process').spawn
-  , args = [ __dirname + '/programs/u3dam' ];
+  , args = [ __dirname + '/programs/u3d' ];
 
 process.argv.slice(2).forEach(function(arg){
   var flag = arg.split('=')[0];
-
   switch (flag) {
+    case 'help':
+      break;
     default:
       if (0 == arg.indexOf('--trace')) args.unshift(arg);
       else args.push(arg);
