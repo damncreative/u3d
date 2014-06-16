@@ -1,8 +1,8 @@
 u3d
 ===
 
-[![Build Status](https://travis-ci.org/Naxmeify/u3d.svg?branch=master)](https://travis-ci.org/Naxmeify/u3d)
-[![Dependency Status](https://gemnasium.com/Naxmeify/u3d.svg)](https://gemnasium.com/Naxmeify/u3d)
+[![Build Status](https://travis-ci.org/damncreative/u3d.svg?branch=master)](https://travis-ci.org/damncreative/u3d)
+[![Dependency Status](https://gemnasium.com/damncreative/u3d.svg)](https://gemnasium.com/damncreative/u3d)
 [![NPM version](https://badge.fury.io/js/u3d.svg)](http://badge.fury.io/js/u3d)
 
 
