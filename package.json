@@ -1,6 +1,6 @@
 {
   "name": "u3d",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Unity3D Tools - with Unity3D Cli and Unity3D Asset Manager",
   "main": "./lib/u3d.js",
   "bin": {
