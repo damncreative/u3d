@@ -56,9 +56,15 @@ program.command('run')
 // -- install
 program.command('install')
 .description('Install Unity3D from internet')
+.option('-r, --release <version>', 'Define Unity3D Version (latest version is default)')
 .action(function(cmd) {
-  u3d.download('4.3.4', function(err, data) {
-    if(err) console.log(err);
+  u3d.install(cmd.release, function(err, data) {
+    if(err) {
+      if(err == 404) {
+        console.log("Unity3D Setup not found. Pick other version or install latest version.");
+        console.log("Checkout 'u3d install --help' for more information");
+      }
+    }
   });
 });
 
