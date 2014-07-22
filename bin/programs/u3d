@@ -36,19 +36,24 @@ var u3d = require(lib + 'u3d');
 program.version(pkg.version);
 
 // usage
-program.usage('[command] [options]')
+program.usage('[command] [options]');
 
 // options
+program.option('-v, --verbose', 'Show complete output');
 
 // on help
 
 // commands
+// -- run
 program.command('run')
-.description('Starts Unity3D...maybe')
-.action(function(cmd){
-  console.log("Start....");
+.description('Start Unity3D')
+.action(function(cmd) {
+  console.log(cmd);
+  console.log('run');
+  u3d.run();
 });
 
+// -- install
 program.command('install')
 .description('Install Unity3D from internet')
 .action(function(cmd) {
@@ -57,5 +62,15 @@ program.command('install')
   });
 });
 
+// unknown command
+program.on('*', function() {
+  console.log('Unknown Command');  
+});
+
 // parse
 program.parse(process.argv);
+
+// default Action
+if (program.args.length < 1 ) {
+  u3d.run();
+}
