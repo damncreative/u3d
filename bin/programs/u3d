@@ -56,9 +56,11 @@ program.command('run')
 // -- install
 program.command('install')
 .description('Install Unity3D from internet')
-.option('-r, --release <version>', 'Define Unity3D Version (latest version is default)')
+.option('-r, --release <version>', 'Define Unity3D Version (latest version is default).')
+.option('-s, --silent', 'Performs a silent (no questions asked) install (Windows only).')
+.option('-d, --dist <path>', 'Sets the default install directory. Useful when combined with the silent install option. (Windows only).')
 .action(function(cmd) {
-  u3d.install(cmd.release, function(err, data) {
+  u3d.install(cmd.release, cmd.dist, cmd.silent, function(err, data) {
     if(err) {
       if(err == 404) {
         console.log("Unity3D Setup not found. Pick other version or install latest version.");
