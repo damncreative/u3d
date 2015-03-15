@@ -1,5 +1,18 @@
 {
-  "WINDOWS": "C:\\Program Files (x86)\\Unity\\Editor\\Unity.exe",
-  "LINUX": "",
-  "OSX": "/Applications/Unity/Unity.app/Contents/MacOS/Unity"
+  "EXECUTABLE": {
+    "WINDOWS": {
+      "V_32": "C:\\Program Files (x86)\\Unity\\Editor\\Unity.exe",
+      "V_64": "C:\\Program Files\\Unity\\Editor\\Unity.exe"
+    },
+    "LINUX": "",
+    "OSX": "/Applications/Unity/Unity.app/Contents/MacOS/Unity"
+  },
+  "STANDARDASSETS": {
+    "WINDOWS": {
+      "V_32": "C:\\Program Files (x86)\\Unity\\Editor\\Standard Assets",
+      "V_64": "C:\\Program Files\\Unity\\Editor\\Standard Assets"
+    },
+    "LINUX": "",
+    "OSX": "/Applications/Unity/Standard Assets"
+  }
 }
