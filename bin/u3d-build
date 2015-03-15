@@ -1,20 +1,24 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var path = require('path');
 var pkg = require('../package.json');
+var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <projectDir>')
+program.usage('[options] <path/to/Project>')
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
+program.option('-u, --unity <path>', 'Path to Unity3D Executable');
+program.option('-a, --assets <path>', 'Path to Unity3D StandardAssets');
 program.option('-p, --path', 'path/to/your/build (./Build is default)');
-program.option('-l, --linux <versions>', 'Build player universal, 32 or 64 Bit (universal is default) for Linux');
-program.option('-o, --osx <versions>', 'Build player universal, 32 or 64 Bit (universal is default) for OSX');
-program.option('-w, --windws <versions>', 'Build player 32 or 64 Bit (32 is default) for Windows');
+program.option('-l, --linux [versions]', 'Build player universal, 32 or 64 Bit (universal is default) for Linux');
+program.option('-o, --osx [versions]', 'Build player universal, 32 or 64 Bit (universal is default) for OSX');
+program.option('-w, --windows [versions]', 'Build player 32 or 64 Bit (32 is default) for Windows');
 program.option('-W, --web', 'Build WebPlayer');
 program.option('-S, --stream', 'Build streamed WebPlayer');
 
@@ -37,6 +41,38 @@ program.parse(process.argv);
 if (!process.argv.slice(2).length) {
     program.outputHelp();
 } else {
+  // ==== correction
+  if(program.linux === true) program.linux = 'universal';
+  if(program.linux && program.linux.indexOf(",") !== -1) {
+    program.linux = program.linux.split(",");
+  }
+
+  if(program.windows === true) program.windows = '32';
+  if(program.windows && program.windows.indexOf(",") !== -1) {
+    program.windows = program.windows.split(",");
+  }
+
+  if(program.osx === true) program.osx = 'universal';
+  if(program.osx && program.osx.indexOf(",") !== -1) {
+    program.osx = program.osx.split(",");
+  }
+
+  // ==== destination
+  var relativePath = program.args.shift();
+  var destinationPath = "";
+  if(relativePath) {
+    destinationPath = path.join(process.cwd(), relativePath);
+  } else {
+    destinationPath = process.cwd();
+  }
+
   // ==== THE ACTION
-  console.log(program.linux);
+  console.log("Linux: %j", program.linux);
+  console.log("Windows: %j", program.windows);
+  console.log("OSX: %j", program.osx);
+  console.log("Web: %j", program.web);
+  console.log("Stream: %j", program.stream);
+  console.log("Path: %j", destinationPath);
+
+  u3d.u3d.build(program, destinationPath);
 }

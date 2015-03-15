@@ -9,7 +9,7 @@ var osMock = {};
 describe('Helper: executablePath', function () {
 
 	it('should return a String', function () {
-    executablePath().should.be.an.instanceOf(String);
+    executablePath.Unity().should.be.an.instanceOf(String);
 	});
 
   it('should return the Windows 32Bit path', function() {
@@ -19,7 +19,7 @@ describe('Helper: executablePath', function () {
         'os': osMock
     });
 
-    executablePath().should.be.eql(PATHES.EXECUTABLE.WINDOWS.V_32);
+    executablePath.Unity().should.be.eql(PATHES.EXECUTABLE.WINDOWS.V_32);
   });
 
 	it('should return the Windows 64Bit path', function() {
@@ -29,7 +29,7 @@ describe('Helper: executablePath', function () {
         'os': osMock
     });
 
-    executablePath().should.be.eql(PATHES.EXECUTABLE.WINDOWS.V_64);
+    executablePath.Unity().should.be.eql(PATHES.EXECUTABLE.WINDOWS.V_64);
   });
 
   it('should return the Linux path', function() {
@@ -38,7 +38,7 @@ describe('Helper: executablePath', function () {
         'os': osMock
     });
 
-    executablePath().should.be.eql(PATHES.EXECUTABLE.LINUX);
+    executablePath.Unity().should.be.eql(PATHES.EXECUTABLE.LINUX);
   });
 
   it('should return the OSX path', function() {
@@ -47,6 +47,6 @@ describe('Helper: executablePath', function () {
         'os': osMock
     });
 
-    executablePath().should.be.eql(PATHES.EXECUTABLE.OSX);
+    executablePath.Unity().should.be.eql(PATHES.EXECUTABLE.OSX);
   });
 });

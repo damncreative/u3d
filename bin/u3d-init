@@ -12,6 +12,8 @@ program.version(pkg.version);
 program.usage('[options] <path>')
 
 // ==== Option
+program.option('-u, --unity <path>', 'Path to Unity3D Executable');
+program.option('-a, --assets <path>', 'Path to Unity3D StandardAssets');
 program.option('-t, --trace', 'Show trace output');
 program.option('-s, --start', 'Start the new Project');
 
