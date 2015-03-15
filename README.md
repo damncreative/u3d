@@ -10,6 +10,12 @@ The ultimate Unity3D Tool.
 
 [![NPM](https://nodei.co/npm/u3d.png)](https://nodei.co/npm/u3d/)
 
+
+## Getting started
+```
+$ npm install -g u3d
+```
+
 > Attention: AM does not exist yet...
 
 ## U3D
@@ -54,9 +60,4 @@ $ u3dam login
 
 # Publish new asset to AM
 $ u3dam publish
-```
-
-## Getting started
-```
-$ npm install -g u3d
 ```
