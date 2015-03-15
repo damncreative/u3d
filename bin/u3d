@@ -3,7 +3,6 @@
 var program = require('commander');
 var pkg = require('../package.json');
 
-
 // ==== version
 program.version(pkg.version);
 

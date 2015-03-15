@@ -2,6 +2,7 @@
 
 var program = require('commander');
 var pkg = require('../package.json');
+var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
@@ -23,9 +24,4 @@ program.on('--help', function(){
 // ==== parse
 program.parse(process.argv);
 
-// ==== Print Help if no command is executed
-if (!process.argv.slice(2).length) {
-    program.outputHelp();
-} else {
-  // ==== THE ACTION
-}
+u3d.u3d.run();
