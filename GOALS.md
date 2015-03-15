@@ -8,7 +8,6 @@
   * creation of git repositories
   * creation of git flow (branches master, develop, releases/*, features/*, hotfixes/*)
 
-
 # U3DAM
 
 * Default Config File in Root Folder of U3D Project (u3dam.json) (important for large projects)
