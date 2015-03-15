@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var pkg = require('../package.json');
+
+// ==== version
+program.version(pkg.version);
+
+// ==== usage
+program.usage('[options] <assets>')
+
+// ==== Option
+program.option('-t, --trace', 'Show trace output');
+program.option('-v, --unity-version', 'specify Unity3D Version to install');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ u3d install');
+  console.log('    $ u3d install -v 4.3.1');
+  console.log('    $ u3d install --unity-version 4.2.4');
+  console.log('');
+});
+
+
+// ==== parse
+program.parse(process.argv);
+
+// ==== Print Help if no command is executed
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+} else {
+  // ==== THE ACTION
+}

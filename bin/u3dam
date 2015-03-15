@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
-var spawn = require('child_process').spawn
-  , args = [ __dirname + '/programs/u3dam' ];
+var program = require('commander');
+var pkg = require('../package.json');
 
-process.argv.slice(2).forEach(function(arg){
-  var flag = arg.split('=')[0];
+// ==== version
+program.version(pkg.version);
 
-  switch (flag) {
-    default:
-      if (0 == arg.indexOf('--trace')) args.unshift(arg);
-      else args.push(arg);
-      break
-  }
-});
+// ==== usage
+program.usage('[command] [options]')
 
-var spawnedProcess = spawn(process.argv[0], args, { customFds: [0,1,2] });
-spawnedProcess.on('exit', function (code, signal) {
-  process.on('exit', function(){
-    if (signal) {
-      process.kill(process.pid, signal);
-    } else {
-      process.exit(code);
-    }
-  });
-});
+//================================================
+// ==== U3D Asset Manager Commands
+//================================================
+program.command('find <keywords>', 'Find asset in u3d registry');
+program.command('install <assets>', 'Install assets');
+program.command('uninstall <assets>', 'Uninstall assets');
+program.command('update <assets>', 'Update assets');
+
+// ==== parse
+program.parse(process.argv);
+
+// ==== Print Help if no command is executed
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+}

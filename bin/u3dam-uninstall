@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var pkg = require('../package.json');
+
+// ==== version
+program.version(pkg.version);
+
+// ==== usage
+program.usage('[options] <assets>')
+
+// ==== Option
+program.option('-t, --trace', 'Show trace output');
+program.option('-s, --save', 'Removes the uninstalled asset from u3d.json');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ u3dam uninstall --save awesome-asset other-asset');
+  console.log('');
+});
+
+
+// ==== parse
+program.parse(process.argv);
+
+// ==== Print Help if no command is executed
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+} else {
+  // ==== THE ACTION
+}
