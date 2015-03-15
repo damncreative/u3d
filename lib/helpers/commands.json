@@ -1,3 +1,41 @@
 {
-  
+  "ASSETSERVERUPDATE": "-assetServerUpdate {ip}:{port} {projectname} {username} {password} {revision}",
+  "BATCHMODE":"-batchmode",
+  "BUILD": {
+    "LINUX": {
+      "V_UNI": "-buildLinuxUniversalPlayer {path}",
+      "V_32": "-buildLinux32Player {path}",
+      "V_64": "-buildLinux64Player {path}"
+    },
+    "OSX": {
+      "V_UNI": "-buildOSXUniversalPlayer {path}",
+      "V_32": "-buildOSXPlayer {path}",
+      "V_64": "-buildOSX64Player {path} "
+    },
+    "WINDOWS": {
+      "V_32": "-buildLinux32Player {path}",
+      "V_64": "-buildLinux64Player {path}"
+    },
+    "WEB": {
+      "V_N": "-buildWebPlayer {path}",
+      "V_S": "-buildWebPlayerStreamed {path}"
+    }
+  },
+  "CREATE": "-createProject {path}",
+  "EXECUTE": "-executeMethod",
+  "EXPORTPACKAGE": "-exportPackage {assets}",
+  "FORCE": {
+    "D3D9": "-force-d3d9",
+    "D3D11": "-force-d3d11",
+    "OPENGL": "-force-opengl",
+    "FREE": "-force-free",
+  },
+  "IMPORTPACKAGE": "-importPackage {path}",
+  "LOGFILE": "-logFile {path}",
+  "SILENT": "-silent-crashes",
+  "NOGRAPHICS": "-nographics",
+  "PROJECTPATH": "-projectPath {path}",
+  "QUIT": "-quit",
+  "RETURNLICENSE": "-returnlicense",
+  "SERIAL": "-serial {serial}"
 }

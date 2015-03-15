@@ -13,7 +13,10 @@ program.usage('[command] [options]')
 // ==== U3D Commands
 //================================================
 program.command('init', 'Init new Unity3D Project');
-program.command('run', 'Start Unity3D');
+program.command('run <projectDir>', 'Start Unity3D');
+program.command('build <projectDir>', 'Build standalone players');
+// program.command('target <target>', 'Build targets');
+program.command('test', 'Run tests');
 // TODO: Disabled install
 program.command('install', 'Install latest Unity3D (DISABLED)');
 

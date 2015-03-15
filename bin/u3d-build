@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var pkg = require('../package.json');
+
+// ==== version
+program.version(pkg.version);
+
+// ==== usage
+program.usage('[options] <projectDir>')
+
+// ==== Option
+program.option('-t, --trace', 'Show trace output');
+program.option('-p, --path', 'path/to/your/build (./Build is default)');
+program.option('-l, --linux <versions>', 'Build player universal, 32 or 64 Bit (universal is default) for Linux');
+program.option('-o, --osx <versions>', 'Build player universal, 32 or 64 Bit (universal is default) for OSX');
+program.option('-w, --windws <versions>', 'Build player 32 or 64 Bit (32 is default) for Windows');
+program.option('-W, --web', 'Build WebPlayer');
+program.option('-S, --stream', 'Build streamed WebPlayer');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ u3d build -w 64 AngryBots');
+  console.log('    $ u3d build -w 32,64 AngryBots');
+  console.log('    $ u3d build --linux 64 AngryBots');
+  console.log('    $ u3d build --linux universal,32,64 AngryBots');
+  console.log('    $ u3d build --linux universal,32,64 --windows 32,64 AngryBots');
+  console.log('');
+});
+
+
+// ==== parse
+program.parse(process.argv);
+
+// ==== Print Help if no command is executed
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+} else {
+  // ==== THE ACTION
+  console.log(program.linux);
+}

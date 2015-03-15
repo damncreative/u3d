@@ -8,15 +8,26 @@ var u3d = require('..');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options]')
+program.usage('[options] <projectDir>')
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
+program.option('-b, --build-target', 'Select a active build target');
 
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
   console.log('    $ u3d run');
+  console.log('    $ u3d run -t win64 path/to/AngryBots');
+  console.log('');
+  console.log('  Possible target:');
+  console.log('    win32, win64, osx,');
+  console.log('    osxintel64, osxuniversal,');
+  console.log('    linux, linux64, linuxuniversal,');
+  console.log('    ios, android, web, webstreamed,');
+  console.log('    webgl, xbox360, xboxone, ps3,');
+  console.log('    ps4, psp2, wsa, wp8, bb10,');
+  console.log('    tizen, samsungtv.');
   console.log('');
 });
 

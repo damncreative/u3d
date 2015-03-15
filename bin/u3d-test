@@ -2,24 +2,21 @@
 
 var program = require('commander');
 var pkg = require('../package.json');
+var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <assets>')
+program.usage('[options]')
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
-program.option('-s, --save', 'Updates the asset meta in u3d.json');
-program.option('-r, --revision', 'Specific Revision from AssetServer');
 
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
-  console.log('    $ u3dam update');
-  console.log('    $ u3dam update --save');
-  console.log('    $ u3dam update --save awesome-asset other-asset');
+  console.log('    $ u3d test');
   console.log('');
 });
 
