@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var path = require('path');
 var pkg = require('../package.json');
+var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options]')
+program.usage('[options] <path>')
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
+program.option('-s, --start', 'Start the new Project');
 
 program.on('--help', function(){
   console.log('  Examples:');
@@ -23,9 +26,14 @@ program.on('--help', function(){
 // ==== parse
 program.parse(process.argv);
 
-// ==== Print Help if no command is executed
-if (!process.argv.slice(2).length) {
-    program.outputHelp();
+// ==== destination
+var relativePath = program.args.shift();
+var destinationPath = "";
+if(relativePath) {
+  destinationPath = path.join(process.cwd(), relativePath);
 } else {
-  // ==== THE ACTION
+  destinationPath = process.cwd();
 }
+
+// ==== execute
+u3d.u3d.init(program, destinationPath);

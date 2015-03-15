@@ -12,7 +12,7 @@ program.usage('[command] [options]')
 //================================================
 // ==== U3D Commands
 //================================================
-program.command('init', 'Init new Unity3D Project');
+program.command('init <path>', 'Init new Unity3D Project');
 program.command('run <projectDir>', 'Start Unity3D');
 program.command('build <projectDir>', 'Build standalone players');
 // program.command('target <target>', 'Build targets');

@@ -21,14 +21,14 @@
       "V_S": "-buildWebPlayerStreamed {path}"
     }
   },
-  "CREATE": "-createProject {path}",
+  "CREATE": "-createProject",
   "EXECUTE": "-executeMethod",
   "EXPORTPACKAGE": "-exportPackage {assets}",
   "FORCE": {
     "D3D9": "-force-d3d9",
     "D3D11": "-force-d3d11",
     "OPENGL": "-force-opengl",
-    "FREE": "-force-free",
+    "FREE": "-force-free"
   },
   "IMPORTPACKAGE": "-importPackage {path}",
   "LOGFILE": "-logFile {path}",
