@@ -8,7 +8,7 @@ The ultimate Unity3D Tool.
 [![NPM version](https://badge.fury.io/js/u3d.svg)](http://badge.fury.io/js/u3d)
 
 
-[![NPM](https://nodei.co/npm/u3d.png)](https://nodei.co/npm/u3d/)
+[![NPM](https://nodei.co/npm/u3d.png)](https://www.npmjs.com/package/u3d)
 
 # What for
 
