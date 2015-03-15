@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/damncreative/u3d.git"
+    "url": "https://github.com/Ninevillage/u3d.git"
   },
   "keywords": [
     "unity3d",
@@ -23,9 +23,9 @@
   "author": "Ninevillage <info@ninevillage.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/damncreative/u3d/issues"
+    "url": "https://github.com/Ninevillage/u3d/issues"
   },
-  "homepage": "https://github.com/damncreative/u3d",
+  "homepage": "https://github.com/Ninevillage/u3d",
   "dependencies": {
     "commander": "^1.3.2",
     "debug": "^0.8.1",
