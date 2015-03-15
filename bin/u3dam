@@ -12,6 +12,7 @@ program.usage('[command] [options]')
 //================================================
 // ==== U3D Asset Manager Commands
 //================================================
+program.command('init', 'Init new Unity3D Asset Project (for U3D AM)');
 program.command('find <keywords>', 'Find asset in u3d registry');
 program.command('install <assets>', 'Install assets');
 program.command('uninstall <assets>', 'Uninstall assets');

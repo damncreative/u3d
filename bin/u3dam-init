@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var pkg = require('../package.json');
+
+// ==== version
+program.version(pkg.version);
+
+// ==== usage
+program.usage('[options] <assets>')
+
+// ==== Option
+program.option('-t, --trace', 'Show trace output');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ u3dam init');
+  console.log('');
+});
+
+
+// ==== parse
+program.parse(process.argv);
+
+// ==== Print Help if no command is executed
+if (!process.argv.slice(2).length) {
+    program.outputHelp();
+} else {
+  // ==== THE ACTION
+}
