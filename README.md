@@ -10,6 +10,13 @@ The ultimate Unity3D Tool.
 
 [![NPM](https://nodei.co/npm/u3d.png)](https://nodei.co/npm/u3d/)
 
+# What for
+
+* Generation
+* Synchronization (not yet)
+* Collaboration (not yet)
+* Continous Integration (not yet)
+* Automatic Build / Deployment (not yet)
 
 ## Getting started
 ```
