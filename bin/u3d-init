@@ -9,7 +9,7 @@ var u3d = require('..');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <path>')
+program.usage('[options] <path>');
 
 // ==== Option
 program.option('-u, --unity <path>', 'Path to Unity3D Executable');

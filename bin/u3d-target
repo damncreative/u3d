@@ -8,7 +8,7 @@
 // program.version(pkg.version);
 //
 // // ==== usage
-// program.usage('[options]')
+// program.usage('[options]');
 //
 // // ==== Option
 // program.option('-t, --trace', 'Show trace output');

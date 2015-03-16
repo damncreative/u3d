@@ -7,7 +7,7 @@ var pkg = require('../package.json');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <assets>')
+program.usage('[options] <assets>');
 
 // ==== Option
 program.option('-u, --unity <path>', 'Path to Unity3D Executable');

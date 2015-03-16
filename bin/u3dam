@@ -7,7 +7,7 @@ var pkg = require('../package.json');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[command] [options]')
+program.usage('[command] [options]');
 
 //================================================
 // ==== U3D Asset Manager Commands

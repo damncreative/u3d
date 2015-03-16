@@ -7,7 +7,7 @@ var pkg = require('../package.json');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <assets>')
+program.usage('[options] <assets>');
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
