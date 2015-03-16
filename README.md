@@ -13,11 +13,11 @@ The ultimate Unity3D Tool.
 # What for
 
 - [x] Generation
-- [ ] Synchronization (not yet)
-- [ ] Collaboration (not yet)
-- [ ] Continous Integration (not yet)
+- [ ] Synchronization
+- [ ] Collaboration
+- [ ] Continous Integration
 - [x] Automatic Build
-- [ ] Deployment (not yet)
+- [ ] Deployment
 
 ## Getting started
 ```
