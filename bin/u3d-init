@@ -37,5 +37,7 @@ if(relativePath) {
   destinationPath = process.cwd();
 }
 
+// TODO: Check destination already exists to overwrite it
+
 // ==== execute
 u3d.u3d.init(program, destinationPath);
