@@ -1,5 +1,17 @@
+os:
+- linux
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
+- "0.10"
+- "0.11"
+- "0.12"
+  
+---
+  
+os:
+- osx
+language: node_js
+node_js:
+- "0.10"
+- "0.11"
+- "0.12"
