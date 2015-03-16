@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var fs = require('fs');
+var path = require('path');
 var pkg = require('../package.json');
+var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
@@ -33,4 +36,12 @@ if (!process.argv.slice(2).length) {
     program.outputHelp();
 } else {
   // ==== THE ACTION
+  fs.exists(path.join(process.cwd(), 'u3dam.json'), function (exists) {
+    if(!exists) {
+      console.log("u3dam.json not exists");
+      process.exit(1);
+    }
+
+    u3d.u3dam.install(program);
+  });
 }
