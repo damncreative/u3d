@@ -9,18 +9,25 @@ var u3d = require('..');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[options] <path/to/Project>')
+program.usage('[options] <path/to/Project>');
 
 // ==== Option
 program.option('-t, --trace', 'Show trace output');
 program.option('-u, --unity <path>', 'Path to Unity3D Executable');
 program.option('-a, --assets <path>', 'Path to Unity3D StandardAssets');
-program.option('-p, --path', 'path/to/your/build (./Build is default)');
-program.option('-l, --linux [versions]', 'Build player universal, 32 or 64 Bit (universal is default) for Linux');
-program.option('-o, --osx [versions]', 'Build player universal, 32 or 64 Bit (universal is default) for OSX');
-program.option('-w, --windows [versions]', 'Build player 32 or 64 Bit (32 is default) for Windows');
-program.option('-W, --web', 'Build WebPlayer');
-program.option('-S, --stream', 'Build streamed WebPlayer');
+program.option('-p, --path <path>', 'Path/to/your/build (Default: ./BUILD)', path.join(process.cwd(), 'BUILD'));
+program.option('-n, --name <name>', 'Name of your Builds (Default: MyGame)', 'MyGame');
+
+program.option('    --linux', 'Build player universal for Linux');
+program.option('    --linux32', 'Build player 32Bit for Linux');
+program.option('    --linux64', 'Build player 64Bit for Linux');
+program.option('    --osx', 'Build player universal for OSX');
+program.option('    --osx32', 'Build player 32Bit for OSX');
+program.option('    --osx64', 'Build player 64Bit for OSX');
+program.option('    --win32', 'Build player 32Bit for Windows');
+program.option('    --win64', 'Build player 64Bit for Windows');
+program.option('    --web', 'Build WebPlayer');
+program.option('    --stream', 'Build streamed WebPlayer');
 
 program.on('--help', function(){
   console.log('  Examples:');
@@ -41,24 +48,14 @@ program.parse(process.argv);
 if (!process.argv.slice(2).length) {
     program.outputHelp();
 } else {
-  // ==== correction
-  if(program.linux === true) program.linux = 'universal';
-  if(program.linux && program.linux.indexOf(",") !== -1) {
-    program.linux = program.linux.split(",");
-  }
-
-  if(program.windows === true) program.windows = '32';
-  if(program.windows && program.windows.indexOf(",") !== -1) {
-    program.windows = program.windows.split(",");
-  }
-
-  if(program.osx === true) program.osx = 'universal';
-  if(program.osx && program.osx.indexOf(",") !== -1) {
-    program.osx = program.osx.split(",");
-  }
-
   // ==== destination
   var relativePath = program.args.shift();
+
+  if(relativePath === null || relativePath === undefined) {
+    program.outputHelp();
+    process.exit(1);
+  }
+
   var destinationPath = "";
   if(relativePath) {
     destinationPath = path.join(process.cwd(), relativePath);
@@ -67,12 +64,18 @@ if (!process.argv.slice(2).length) {
   }
 
   // ==== THE ACTION
-  console.log("Linux: %j", program.linux);
-  console.log("Windows: %j", program.windows);
-  console.log("OSX: %j", program.osx);
-  console.log("Web: %j", program.web);
-  console.log("Stream: %j", program.stream);
-  console.log("Path: %j", destinationPath);
+  // console.log("Linux: %j", program.linux);
+  // console.log("Linux 32: %j", program.linux32);
+  // console.log("Linux 64: %j", program.linux64);
+  // console.log("Windows 32: %j", program.win32);
+  // console.log("Windows 64: %j", program.win64);
+  // console.log("OSX: %j", program.osx);
+  // console.log("OSX32: %j", program.osx32);
+  // console.log("OSX64: %j", program.osx64);
+  // console.log("Web: %j", program.web);
+  // console.log("Stream: %j", program.stream);
+  //
+  // console.log("Path: %j", destinationPath);
 
   u3d.u3d.build(program, destinationPath);
 }

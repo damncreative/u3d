@@ -13,8 +13,8 @@
       "V_64": "-buildOSX64Player "
     },
     "WINDOWS": {
-      "V_32": "-buildLinux32Player",
-      "V_64": "-buildLinux64Player"
+      "V_32": "-buildWindowsPlayer",
+      "V_64": "-buildWindows64Player"
     },
     "WEB": {
       "V_N": "-buildWebPlayer",
