@@ -4,6 +4,10 @@ u3d
 The ultimate Unity3D Tool.
 
 [![Build Status](https://travis-ci.org/Ninevillage/u3d.svg?branch=master)](https://travis-ci.org/Ninevillage/u3d)
+[![Build status](https://ci.appveyor.com/api/projects/status/qf40sed2qj5e05b8?svg=true)](https://ci.appveyor.com/project/Naxmeify/u3d)
+
+
+
 [![Dependency Status](https://gemnasium.com/Ninevillage/u3d.svg)](https://gemnasium.com/Ninevillage/u3d)
 [![NPM version](https://badge.fury.io/js/u3d.svg)](http://badge.fury.io/js/u3d)
 
