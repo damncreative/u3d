@@ -18,6 +18,7 @@ program.command('export [files...]', 'Export assets');
 program.command('find [keywords...]', 'Find asset in u3d registry');
 program.command('install [assets...]', 'Install assets');
 program.command('uninstall [assets...]', 'Uninstall assets');
+program.command('fetch', 'Fetch updatable Assets and prompt result');
 program.command('update [assets...]', 'Update assets');
 program.command('list', 'List dependencies');
 program.command('login', 'Set login credentials for AM Registry');
