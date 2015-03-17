@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var fs = require('fs');
 var path = require('path');
+var prompt = require('prompt');
 var pkg = require('../package.json');
 var u3d = require('..');
 
 // ==== version
 program.version(pkg.version);
+
+program.description('Creates a new Unity3D Project with u3dam.json file.\n  Opens the project, if --start is given.');
 
 // ==== usage
 program.usage('[options] <path>');
@@ -15,7 +19,6 @@ program.usage('[options] <path>');
 program.option('-u, --unity <path>', 'Path to Unity3D Executable');
 program.option('-a, --assets <path>', 'Path to Unity3D StandardAssets');
 program.option('-t, --trace', 'Show trace output');
-program.option('-s, --start', 'Start the new Project');
 
 program.on('--help', function(){
   console.log('  Examples:');
@@ -28,16 +31,93 @@ program.on('--help', function(){
 // ==== parse
 program.parse(process.argv);
 
-// ==== destination
-var relativePath = program.args.shift();
-var destinationPath = "";
-if(relativePath) {
-  destinationPath = path.join(process.cwd(), relativePath);
-} else {
-  destinationPath = process.cwd();
-}
+// ==== LOAD U3D Tools
+u3d(program);
 
 // TODO: Check destination already exists to overwrite it
+emptyDirectory(program.destinationPath, function(empty){
+  if (!empty) {
+    prompt.start();
+    var property = {
+      name: 'yesno',
+      message: 'Directory already exists. Override?',
+      validator: /y[es]*|n[o]?/,
+      warning: 'Must respond yes or no',
+      default: 'no'
+    };
+    prompt.get(property, function (err, result) {
+      if(err) {
+        console.log(err);
+        process.exit(1);
+      }
+      if(result.yesno === 'no') {
+        process.exit(0);
+      }
+
+      create();
+    });
+  } else {
+    create();
+  }
+});
+
+function create() {
+  var schema = {
+    properties: {
+      name: {
+        pattern: /^[a-zA-Z0-9\s-]+$/,
+        message: 'Name must be only letters, digits, spaces, or dashes',
+        default: path.basename(program.destinationPath)
+      },
+      version: {
+        pattern: /^[0-9\s.]+$/,
+        message: 'Version must be only numbers or dots',
+        default: '0.0.1'
+      },
+      author: {
+        pattern: /^[a-zA-Z0-9\s-]+$/,
+        message: 'Author must be only letters, digits, spaces, or dashes'
+      },
+      description: {
+        pattern: /^[a-zA-Z0-9\s-]+$/,
+        message: 'Author must be only letters, digits, spaces, or dashes'
+      }
+    }
+  };
+  prompt.get(schema, function(err, result) {
+    console.log(err);
+    console.log(result);
+  });
+}
 
 // ==== execute
-u3d.u3d.init(program, destinationPath);
+// var args = [];
+//
+// args.push(program.OPTIONS.CREATE);
+// args.push(program.destinationPath);
+//
+// if(!program.start) {
+//   args.push(program.OPTIONS.QUIT);
+//   args.push(program.OPTIONS.BATCHMODE);
+// }
+//
+// program.RunService.Sync(program.unity, args,
+//   function(code, signal) {
+//     if(code === 0) {
+//       program.InitU3DAMService(program);
+//     }
+//   }
+// );
+
+/**
+ * Check if the given directory `path` is empty.
+ *
+ * @param {String} path
+ * @param {Function} fn
+ */
+function emptyDirectory(path, fn) {
+  fs.readdir(path, function(err, files){
+    if (err && 'ENOENT' != err.code) throw err;
+    fn(!files || !files.length);
+  });
+}

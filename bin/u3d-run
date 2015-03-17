@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var path = require('path');
 var pkg = require('../package.json');
 var u3d = require('..');
 
@@ -39,15 +38,6 @@ program.on('--help', function(){
 
 // ==== parse
 program.parse(process.argv);
-
-// ==== destination
-var relativePath = program.args.shift();
-program.destinationPath = "";
-if(relativePath) {
-  program.destinationPath = path.join(process.cwd(), relativePath);
-} else {
-  program.destinationPath = process.cwd();
-}
 
 // ==== LOAD U3D Tools
 u3d(program);
