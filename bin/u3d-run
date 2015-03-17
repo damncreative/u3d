@@ -8,6 +8,8 @@ var u3d = require('..');
 // ==== version
 program.version(pkg.version);
 
+program.description('Runs the Unity3D Editor.\n  Opens the project, if there is a project.\n  If there is no project, it will create one.');
+
 // ==== usage
 program.usage('[options] [projectDir]');
 
@@ -40,11 +42,26 @@ program.parse(process.argv);
 
 // ==== destination
 var relativePath = program.args.shift();
-var destinationPath = "";
+program.destinationPath = "";
 if(relativePath) {
-  destinationPath = path.join(process.cwd(), relativePath);
+  program.destinationPath = path.join(process.cwd(), relativePath);
 } else {
-  destinationPath = process.cwd();
+  program.destinationPath = process.cwd();
 }
 
-u3d.u3d.run(program, destinationPath);
+// ==== LOAD U3D Tools
+u3d(program);
+
+var args = [];
+
+if(program.destinationPath) {
+    args.push(program.OPTIONS.PROJECTPATH);
+    args.push(program.destinationPath);
+}
+
+if(program.target) {
+  args.push(program.OPTIONS.BUILDTARGET);
+  args.push(program.target);
+}
+
+program.RunService.Unref(program.unity, args);

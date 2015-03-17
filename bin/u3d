@@ -7,7 +7,7 @@ var pkg = require('../package.json');
 program.version(pkg.version);
 
 // ==== usage
-program.usage('[command] [options]')
+program.usage('[command] [options]');
 
 //================================================
 // ==== U3D Commands
@@ -15,7 +15,6 @@ program.usage('[command] [options]')
 program.command('init <path>', 'Init new Unity3D Project');
 program.command('run <projectDir>', 'Start Unity3D');
 program.command('build <projectDir>', 'Build standalone players');
-// program.command('target <target>', 'Build targets');
 program.command('test', 'Run tests');
 // TODO: Disabled install
 program.command('install', 'Install latest Unity3D (DISABLED)');
